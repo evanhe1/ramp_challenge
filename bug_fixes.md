@@ -1,4 +1,5 @@
 Bug 1:
+
 Cause: The `scrollY` and `top` variables always sum to the same value, fixing the dropdown's vertical position.
 
 Solution:
@@ -24,7 +25,7 @@ const getDropdownPosition: GetDropdownPositionFn = (target) => {
 ```
 
 Removing the `scrollY` variable produces the correct initial offset relative to the parent select element.
-Setting `position: sticky` for the relevant CSS class maintains the offset even as the parent moves across
+Setting `position: sticky` for the relevant CSS class maintains the offset even as the parent moves on
 the screen due to scrolling.
 
 Bug 2:
@@ -65,7 +66,7 @@ onChange={async (newValue) => {
 }}
 ```
 
-Call `loadAllTransactions()` instead to retrieved paginated transaction for all employees.
+Call `loadAllTransactions()` instead to retrieve paginated transactions for all employees.
 
 Bug 4:
 
@@ -149,5 +150,5 @@ const setTransactionApproval = useCallback<SetTransactionApprovalFunction>(
 
 Calling `clearCache` during transaction approval writes forces cache consistency by causing a cache miss. 
 This solution will result in more cache misses than simply implementing a write-through approach but suffices 
-for the scale of the current problem
+for the small scale of the current problem.
 
