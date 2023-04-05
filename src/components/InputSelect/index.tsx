@@ -139,7 +139,7 @@ const getDropdownPosition: GetDropdownPositionFn = (target) => {
   if (target instanceof Element) {
     const { top, left } = target.getBoundingClientRect();
     return {
-      top: top + 63, // fixed bug 1: top is already relative to window and not document
+      top: top + 63, // fixed bug 1: deleting scrollY produces correct initial offset to parent
       left,
     };
   }
