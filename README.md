@@ -1,6 +1,6 @@
 # bug_fixes.md contains descriptions of my implementations.
 
-## Instructions
+# Instructions
 
 Welcome to Ramp's frontend interview challenge.
 
