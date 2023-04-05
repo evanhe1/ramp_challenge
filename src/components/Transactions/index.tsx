@@ -9,6 +9,10 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
 
   const setTransactionApproval = useCallback<SetTransactionApprovalFunction>(
     async ({ transactionId, newValue }) => {
+      // fixed bug 7: clear cache on transaction approval writes to force
+      // cache consistency, this solution will result in more cache misses
+      // than simply implementing a write-through approach but suffices for
+      // the scale of the current problem
       clearCache();
       await fetchWithoutCache<void, SetTransactionApprovalParams>(
         "setTransactionApproval",

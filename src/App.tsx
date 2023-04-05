@@ -18,7 +18,7 @@ export function App() {
 
   const transactions = useMemo(() => {
     return paginatedTransactions?.data ?? transactionsByEmployee ?? null;
-  }, [paginatedTransactions, transactionsByEmployee]);;
+  }, [paginatedTransactions, transactionsByEmployee]);
 
   const loadAllTransactions = useCallback(async () => {
     setIsLoading(true);
@@ -81,8 +81,8 @@ export function App() {
           <Transactions transactions={transactions} />
 
           {transactions !== null &&
-            paginatedTransactions?.nextPage &&
-            transactionsByEmployee === null && (
+            transactionsByEmployee === null &&
+            paginatedTransactions?.nextPage && (
               <button
                 className="RampButton"
                 disabled={paginatedTransactionsUtils.loading}

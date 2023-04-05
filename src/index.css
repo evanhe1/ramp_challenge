@@ -104,7 +104,7 @@ hr.RampBreak--l {
 
 .RampInputSelect--dropdown-container-opened {
   display: block;
-  position: sticky; /* bug 1 solution */
+  position: sticky; /* bounds dropdown to parent as parent moves */
 }
 
 .RampInputSelect--dropdown-item {
