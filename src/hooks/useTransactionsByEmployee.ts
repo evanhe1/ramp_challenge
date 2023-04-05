@@ -1,11 +1,13 @@
-import { useCallback, useState } from "react"
-import { RequestByEmployeeParams, Transaction } from "../utils/types"
-import { TransactionsByEmployeeResult } from "./types"
-import { useCustomFetch } from "./useCustomFetch"
+import { useCallback, useState } from "react";
+import { RequestByEmployeeParams, Transaction } from "../utils/types";
+import { TransactionsByEmployeeResult } from "./types";
+import { useCustomFetch } from "./useCustomFetch";
 
 export function useTransactionsByEmployee(): TransactionsByEmployeeResult {
-  const { fetchWithCache, loading } = useCustomFetch()
-  const [transactionsByEmployee, setTransactionsByEmployee] = useState<Transaction[] | null>(null)
+  const { fetchWithCache, loading } = useCustomFetch();
+  const [transactionsByEmployee, setTransactionsByEmployee] = useState<
+    Transaction[] | null
+  >(null);
 
   const fetchById = useCallback(
     async (employeeId: string) => {
@@ -14,16 +16,15 @@ export function useTransactionsByEmployee(): TransactionsByEmployeeResult {
         {
           employeeId,
         }
-      )
-
-      setTransactionsByEmployee(data)
+      );
+      setTransactionsByEmployee(data);
     },
     [fetchWithCache]
-  )
+  );
 
   const invalidateData = useCallback(() => {
-    setTransactionsByEmployee(null)
-  }, [])
+    setTransactionsByEmployee(null);
+  }, []);
 
-  return { data: transactionsByEmployee, loading, fetchById, invalidateData }
+  return { data: transactionsByEmployee, loading, fetchById, invalidateData };
 }
